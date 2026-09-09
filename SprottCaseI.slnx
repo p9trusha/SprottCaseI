@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="SprottCaseI/SprottCaseI.vcxproj" Id="796d061b-36b9-499e-bea9-5e0dadd563ec" />
+</Solution>
