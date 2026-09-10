@@ -15,6 +15,6 @@ void eulerSolve(
         x = x_new;
         y = y_new;
         z = z_new;
-        std::cout << x << " " << y << " " << z << std::endl;
+        std::cout << i << " " << x << " " << y << " " << z << std::endl;
     }
 }

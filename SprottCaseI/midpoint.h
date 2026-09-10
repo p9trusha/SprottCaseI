@@ -2,9 +2,11 @@
 #include <iostream>
 
 template <typename Fx, typename Fy, typename Fz>
-void midpointSolve(Fx dx, Fy dy, Fz dz,
-                   double x0, double y0, double z0,
-                   double h, int N)
+void midPointSolve(
+    Fx dx, Fy dy, Fz dz,
+    double x0, double y0, double z0,
+    double h, int N
+)
 {
     double x = x0, y = y0, z = z0;
     for (int i = 0; i < N; i++)
@@ -20,6 +22,6 @@ void midpointSolve(Fx dx, Fy dy, Fz dz,
         x += h * k2x;
         y += h * k2y;
         z += h * k2z;
-        std::cout << x << " " << y << " " << z << std::endl;
+        std::cout << i << " " << x << " " << y << " " << z << std::endl;
     }
 }

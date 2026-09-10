@@ -147,7 +147,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="euler.h" />
-    <ClInclude Include="midpoint.h" />
+    <ClInclude Include="eulerCromer.h" />
+    <ClInclude Include="midPoint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

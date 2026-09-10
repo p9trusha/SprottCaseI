@@ -27,7 +27,10 @@
     <ClInclude Include="euler.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="midpoint.h">
+    <ClInclude Include="midPoint.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="eulerCromer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
