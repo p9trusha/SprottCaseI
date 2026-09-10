@@ -14,25 +14,16 @@ struct Params {
     double scale = 1e5;
 };
 
-Params p;
-
-double dx(double x, double y, double z)
-{
-    return p.a * y * p.scale;
-}
-
-double dy(double x, double y, double z)
-{
-    return (p.b * x + p.c * z) * p.scale;
-}
-
-double dz(double x, double y, double z)
-{
-    return (p.d * x + p.e * y * y + p.f * z) * p.scale;
-}
-
 int main()
 {
+    Params p;
+    p.a = -0.2;
+    p.scale = 1e5;
+
+    auto dx = [&p](double x, double y, double z) { return p.a * y * p.scale; };
+    auto dy = [&p](double x, double y, double z) { return (p.b * x + p.c * z) * p.scale; };
+    auto dz = [&p](double x, double y, double z) { return (p.d * x + p.e * y * y + p.f * z) * p.scale; };
+
     double x0 = 0.0, y0 = 0.1, z0 = 0.0;
     const double h = 1e-6;
     const double timeEnd = 20.0;
