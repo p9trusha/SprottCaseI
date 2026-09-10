@@ -2,6 +2,7 @@
 #include "euler.h"
 #include "midPoint.h"
 #include "eulerCromer.h"
+#include "csv.h"
 
 struct Params {
     double a     = -0.2;
@@ -33,8 +34,24 @@ double dz(double x, double y, double z)
 int main()
 {
     double x0 = 0.0, y0 = 0.1, z0 = 0.0;
-    double h = 1e-6;
-    eulerSolve(dx, dy, dz, x0, y0, z0, h, 300, "csv/euler.csv");
-    midPointSolve(dx, dy, dz, x0, y0, z0, h, 300, "csv/midPoint.csv");
-    eulerCromerSolve(dx, dy, dz, x0, y0, z0, h, 300, "csv/eulerCromer.csv");
+    const double h = 1e-6;
+    const double timeEnd = 20.0;
+    const int saveEvery = 1000;
+
+    auto euler = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
+    {
+        eulerStep(dx, dy, dz, x, y, z, h);
+    };
+    auto midPoint = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
+    {
+        midPointStep(dx, dy, dz, x, y, z, h);
+    };
+    auto eulerCromer = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
+    {
+        eulerCromerStep(dx, dy, dz, x, y, z, h);
+    };
+
+    solve(euler, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/euler.csv");
+    solve(midPoint, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/midPoint.csv");
+    solve(eulerCromer, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/eulerCromer.csv");
 }

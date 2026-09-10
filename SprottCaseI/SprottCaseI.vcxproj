@@ -147,6 +147,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="csv.h" />
     <ClInclude Include="euler.h" />
     <ClInclude Include="eulerCromer.h" />
     <ClInclude Include="midPoint.h" />
