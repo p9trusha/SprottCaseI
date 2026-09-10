@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "euler.h"
+#include "midpoint.h"
 
 double dx(double y)
 {
@@ -19,4 +20,5 @@ double dz(double x, double y, double z)
 int main()
 {
     eulerSolve(dx, dy, dz, 1, 1, 1, 0.01, 1000);
+    midpointSolve(dx, dy, dz, 1, 1, 1, 0.01, 1000);
 }

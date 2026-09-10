@@ -27,5 +27,8 @@
     <ClInclude Include="euler.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="midpoint.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
