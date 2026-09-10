@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include "euler.h"
 
 double dx(double y)
 {
@@ -15,9 +16,7 @@ double dz(double x, double y, double z)
     return x + y * y - z;
 }
 
-
-
 int main()
 {
-    std::cout << "Hello World!\n";
+    eulerSolve(dx, dy, dz, 1, 1, 1, 0.01, 1000);
 }
