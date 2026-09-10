@@ -142,6 +142,7 @@
     <ClCompile Include="SprottCaseI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="metod_KD.docx" />
     <None Include="README.md" />
   </ItemGroup>

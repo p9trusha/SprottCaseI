@@ -22,6 +22,7 @@
   <ItemGroup>
     <None Include="metod_KD.docx" />
     <None Include="README.md" />
+    <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="euler.h">
