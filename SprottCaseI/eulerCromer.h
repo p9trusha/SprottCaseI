@@ -1,20 +1,25 @@
 #pragma once
 #include <fstream>
+#include <functional>
 
-template <typename Fx, typename Fy, typename Fz>
 void eulerCromerSolve(
-    Fx dx, Fy dy, Fz dz,
-    double x0, double y0, double z0,
-    double h, int N,
+    std::function<double(double, double, double)> dx,
+    std::function<double(double, double, double)> dy,
+    std::function<double(double, double, double)> dz,
+    double x0, double y0, double z0, double h, int N,
     const std::string& filename)
 {
     std::ofstream file(filename);
+    file << "time,x,y,z" << std::endl;
+
     double x = x0, y = y0, z = z0;
+    double time = 0.0;
     for (int i = 0; i < N; i++)
     {
-        x = x + h * dx(y);
-        y = y + h * dy(x, z);
+        x = x + h * dx(x, y, z);
+        y = y + h * dy(x, y, z);
         z = z + h * dz(x, y, z);
-        file << x << "," << y << "," << z << std::endl;
+        file << time << "," << x << "," << y << "," << z << std::endl;
+        time += h;
     }
 }
