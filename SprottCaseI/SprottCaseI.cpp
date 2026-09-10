@@ -20,7 +20,7 @@ double dz(double x, double y, double z)
 
 int main()
 {
-    eulerSolve(dx, dy, dz, 1, 1, 1, 0.01, 300);
-    midPointSolve(dx, dy, dz, 1, 1, 1, 0.01, 300);
-    eulerCromerSolve(dx, dy, dz, 1, 1, 1, 0.01, 300);
+    eulerSolve(dx, dy, dz, 1, 1, 1, 0.01, 300, "csv/euler.csv");
+    midPointSolve(dx, dy, dz, 1, 1, 1, 0.01, 300, "csv/midPoint.csv");
+    eulerCromerSolve(dx, dy, dz, 1, 1, 1, 0.01, 300, "csv/eulerCromer.csv");
 }
