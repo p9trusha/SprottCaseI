@@ -17,8 +17,6 @@ struct Params {
 int main()
 {
     Params p;
-    p.a = -0.2;
-    p.scale = 1e5;
 
     auto dx = [&p](double x, double y, double z) { return p.a * y * p.scale; };
     auto dy = [&p](double x, double y, double z) { return (p.b * x + p.c * z) * p.scale; };
@@ -29,20 +27,7 @@ int main()
     const double timeEnd = 20.0;
     const int saveEvery = 1000;
 
-    auto euler = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
-    {
-        eulerStep(dx, dy, dz, x, y, z, h);
-    };
-    auto midPoint = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
-    {
-        midPointStep(dx, dy, dz, x, y, z, h);
-    };
-    auto eulerCromer = [](auto dx, auto dy, auto dz, double& x, double& y, double& z, double h)
-    {
-        eulerCromerStep(dx, dy, dz, x, y, z, h);
-    };
-
-    solve(euler, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/euler.csv");
-    solve(midPoint, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/midPoint.csv");
-    solve(eulerCromer, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/eulerCromer.csv");
+    solve(eulerStep, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/euler.csv");
+    solve(midPointStep, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/midPoint.csv");
+    solve(eulerCromerStep, dx, dy, dz, x0, y0, z0, h, timeEnd, saveEvery, "csv/eulerCromer.csv");
 }

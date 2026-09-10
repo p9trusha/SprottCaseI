@@ -1,8 +1,7 @@
 #pragma once
 
-template <typename Fx, typename Fy, typename Fz>
-void midPointStep(Fx dx, Fy dy, Fz dz,
-                  double& x, double& y, double& z, double h)
+inline constexpr auto midPointStep = [](auto dx, auto dy, auto dz,
+                                        double& x, double& y, double& z, double h)
 {
     double k1x = dx(x, y, z);
     double k1y = dy(x, y, z);
@@ -15,4 +14,4 @@ void midPointStep(Fx dx, Fy dy, Fz dz,
     x += h * k2x;
     y += h * k2y;
     z += h * k2z;
-}
+};
